@@ -1,4 +1,32 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head><body>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script>
+            function validasi(){
+                var npm = document.getElementById('npm');
+                var nama = document.getElementById('nama');
+                var kelas = document.getElementById('kelas');
+ 
+                if (harusDiisi(npm, "npm belum diisi")) {
+                    if (harusDiisi(nama, "nama belum diisi")) {
+                        if (harusDiisi(kelas, "kelas belum diisi")) {
+                            return true;
+                        };
+                    };
+                };
+                return false;
+            }
+ 
+            function harusDiisi(att, msg){
+                if (att.value.length == 0) {
+                    alert(msg);
+                    att.focus();
+                    return false;
+                }
+ 
+                return true;
+            }
+        </script>
+
+</head><body>
 
 
 
@@ -33,15 +61,16 @@
 </tbody></table>
 <h2>FORM</h2>
 <table border="0">
-<form action="http://proses_input.php" method="get" target="_blank" onsubmit="try {return window.confirm(&quot;Anda akan mengirimkan informasi ke halaman eksternal.\nAnda Yakin?&quot;);} catch (e) {return false;}"></form>
+
+ <form id="tabel" onsubmit="return validasi()" action="simpan.php method="post"">
 	<tbody><tr>
-    <td width="120">NPM : <input type="text" name="npm" size="11px" maxlength="9"> <br><br></td>
+    <td width="120">NPM : <input type="text" name="npm" id="npm" size="11px" maxlength="9"> <br><br></td>
 </tr>
 <tr>
-    <td>NAMA : <input type="text" name="nama" size="40px"> <br><br></td>
+    <td>NAMA : <input type="text" name="nama" id="nama" size="40px"> <br><br></td>
    </tr>
    <tr>
-    <td>TGL LHR : <input type="text" name="tgl_lahir"> <br><br></td>
+    <td>KELAS : <input type="text" name="kelas" id="kelas"> <br><br></td>
 </tr>
 <tr>
     <td> <input type="submit" value="SUBMIT"></td>
